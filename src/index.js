@@ -1,7 +1,5 @@
 module.exports = function multiply(first, second) {
-  
-   
-   var a=[];
+    var a=[];
    if (second.length>first.length) {
         var tmp=second;
         second=first;
@@ -39,6 +37,8 @@ module.exports = function multiply(first, second) {
 
    var arr=[];
    var e="";
+   var l;
+   var str32="";
    for (var i=1; i<str.length; i++) {
  
         arr=str1.split("");
@@ -47,6 +47,7 @@ module.exports = function multiply(first, second) {
         var k=0;
         for (var j=str1.length-i-1; j>-1; j--) {
             arr[j]=String(Number(arr[j])+Number(arr1[(arr1.length-1-k)])+e);
+            l=arr1.length-1-k;
             k=k+1;
             e="";
             if (arr[j].length>1) {
@@ -55,13 +56,18 @@ module.exports = function multiply(first, second) {
             }
         }
         if (arr1.length-1-k>-1) {
+           if (l==2) {
+               str32=String(e+Number(arr1[0]+arr1[1]));
+               str1=str32+arr.join("");
+           }
+           else {
            arr1[0]=String(e+Number(arr1[0]));
-           str1=arr1[0]+arr.join("");
+           str1=arr1[0]+arr.join("");}
         } 
         else 
            str1=String(e)+arr.join("");
    }
 
    
-   return str1;  
+   return str1; 
 }
